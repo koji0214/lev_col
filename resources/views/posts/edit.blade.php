@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
+        @extends('layouts.app')
+        
+        @section('content')
         <h1 class="title">編集画面</h1>
         <div class="content">
             <form action="/posts/{{ $post->id }}" method="POST">
@@ -23,8 +26,17 @@
                     <h2>本文</h2>
                     <input type='text' name='post[body]' value="{{ $post->body }}">
                 </div>
+                <div class="category">
+                    <h2>Category</h2>
+                    <select name="post[category_id]">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <input type="submit" value="保存">
             </form>
         </div>
+        @endsection
     </body>
 </html>
