@@ -11,7 +11,6 @@
         @extends('layouts.app')
         
         @section('content')
-        <p>{{Auth::user()->name}}</p>
         <h1>Blog Name</h1>
         <h3 class="create"><a href='/posts/create'>create</a></h3>
         <div class = "posts">
@@ -36,14 +35,5 @@
             {{ $posts->links() }}
         </div>
         @endsection
-        <div>
-            @foreach($questions as $question)
-                <div>
-                    <a href="https://teratail.com/questions/{{ $question['id'] }}">
-                        {{ $question['title'] }}
-                    </a>
-                </div>
-            @endforeach
-        </div>
     </body>
 </html>
